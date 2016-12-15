@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'hello-spring-boot-web-gradle'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.2.RELEASE'
+
+
+
+    // https://mvnrepository.com/artifact/hsqldb/hsqldb
+    compile group: 'hsqldb', name: 'hsqldb', version: '1.8.0.10'
+
+
+    //Auto Provide REST endpoints
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '1.4.2.RELEASE'
+
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
